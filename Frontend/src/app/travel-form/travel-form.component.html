@@ -1,0 +1,109 @@
+<div class="row pt-5 pb-5">
+    <div class="col-6 col-md-6 note">
+        <h6 >Note:-</h6>
+        <small>1.Entry is blocked to containment zones<br>
+            2.You can accompany only 1 person with you for 2 wheeler<br>
+            3.Only 3 people(including driver) are allowed to travel in 3 wheeler & 4 wheeler<br>
+            4.You will get an e-mail notification if  your application is approved
+        </small>
+    </div>
+    <div class="col-6 col-md-4 ">
+        <div *ngIf='msg!=""' class="alert alert-danger" role="alert">
+            <strong>{{msg}}</strong>
+          </div>
+        <div class="card rounded-0 form_card">
+            <div class="card-header">
+                <h3 class="mb-0 text-center">Application form</h3>
+            </div>
+            <div class="card-body ">
+                <form  class="form" #travel_form="ngForm"  (ngSubmit)="AddData();" >
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text"    class="form-control rounded-0" [(ngModel)]="reg_form_data.name" #name="ngModel" [class.is-invalid]="name.invalid && name.touched"  name="name"    required>
+                        <small class="text-danger" [class.d-none]="name.valid || name.touched">Enter name</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text"   class="form-control rounded-0" [(ngModel)]="reg_form_data.email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched"  name="email"  pattern="^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+)\.([a-z]{2,4})(\.[a-z]{2,4})?$"  required>
+                        <small class="text-danger" [class.d-none]="email.valid || email.touched">Enter valid email</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNo">Phone Number</label>
+                        <input type="text"   class="form-control rounded-0" [(ngModel)]="reg_form_data.phoneNo" #phoneNo="ngModel" [class.is-invalid]="phoneNo.invalid && phoneNo.touched"  pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" name="phoneNo"    required>
+                        <small class="text-danger" [class.d-none]="phoneNo.valid || phoneNo.touched">Enter valid phone number</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="dest">Travelling to</label>
+                        <input type="text"   class="form-control rounded-0" [(ngModel)]="reg_form_data.dest" #dest="ngModel" [class.is-invalid]="dest.invalid && dest.touched" name="dest"    required>
+                        <small class="text-danger" [class.d-none]="dest.valid || dest.touched">Enter destination place</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="addr">Address(Current)</label>
+                        <input type="text"   class="form-control rounded-0" [(ngModel)]="reg_form_data.addr" #addr="ngModel" [class.is-invalid]="addr.invalid && addr.touched"  name="addr"    required>
+                        <small class="text-danger" [class.d-none]="addr.valid || addr.touched">Enter current address</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="dest_addr">Destination Address</label>
+                        <input type="text"   class="form-control rounded-0" [(ngModel)]="reg_form_data.dest_addr" #dest_addr="ngModel" [class.is-invalid]="dest_addr.invalid && dest_addr.touched"  name="dest_addr"    required>
+                        <small class="text-danger" [class.d-none]="dest_addr.valid || dest_addr.touched">Enter destination address</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="co_pass">Co-Passengers(name seperated by comma if more than one)</label>
+                        <input type="text"   class="form-control rounded-0" [(ngModel)]="reg_form_data.co_pass" #co_pass="ngModel" [class.is-invalid]="co_pass.invalid && co_pass.touched"  name="co_pass">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="text"   class="form-control rounded-0" [(ngModel)]="reg_form_data.date" #date="ngModel" [class.is-invalid]="date.invalid && date.touched"  name="date"    required>
+                        <small class="text-danger" [class.d-none]="date.valid || date.touched">Enter date of travel</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="text"   class="form-control rounded-0" [(ngModel)]="reg_form_data.time" #time="ngModel" [class.is-invalid]="time.invalid && time.touched"  name="time"    required>
+                        <small class="text-danger" [class.d-none]="time.valid || time.touched">Enter time</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleNo">Vehicle No</label>
+                        <input type="text"   class="form-control rounded-0" [(ngModel)]="reg_form_data.vehicleNo" #vehicleNo="ngModel" [class.is-invalid]="vehicleNo.invalid && vehicleNo.touched"  name="vehicleNo"    required>
+                        <small class="text-danger" [class.d-none]="vehicleNo.valid || vehicleNo.touched">Enter vehicle number</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleType">Vehicle Type</label><small class="text-danger" [class.d-none]="vehicleType.valid || vehicleType.touched">*required</small>
+                        <select style="margin-left: 20px;" name="vehicleType" id="vehicleType" [(ngModel)]="reg_form_data.vehicleType" #vehicleType="ngModel" [class.is-invalid]="vehicleType.invalid && vehicleType.touched" required>
+                            <option selected disabled>select</option>
+                            <option value="2 wheeler">2 wheeler</option>
+                            <option value="3 wheeler">3 wheeler</option>
+                            <option value="4 wheeler">4 wheeler</option>
+                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="driver_name">Driver name</label>
+                        <input type="text"   class="form-control rounded-0" [(ngModel)]="reg_form_data.driver_name" #driver_name="ngModel" [class.is-invalid]="driver_name.invalid && driver_name.touched"  name="driver_name"    required>
+                        <small class="text-danger" [class.d-none]="driver_name.valid || driver_name.touched">Name of driver</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="reason">Reason</label><small class="text-danger" [class.d-none]="reason.valid || reason.touched">*required</small><br>
+                        <select name="reason" id="reason" [(ngModel)]="reg_form_data.reason" #reason="ngModel" [class.is-invalid]="reason.invalid && reason.touched" required>
+                            <option selected disabled>select a reason</option>
+                            <option value="Medical emergency of self or family member">Medical emergency of self or family member</option>
+                            <option value="Rejoining work/duty">Rejoining work/duty</option>
+                            <option value="Marriage (self/close relative)">Marriage (self/close relative)</option>
+                            <option value="Joining the family after being stranded ">Joining the family after being stranded </option>
+                            <option value="Attending funeral(Close relative)">Attending funeral(Close relative)</option>
+                            <option value="Bringing back a family member who is stranded ">Bringing back a family member who is stranded</option>
+                            
+                         </select>
+                    </div >
+                    <div class="btn_class">
+                      <button type="submit" [disabled]="travel_form.form.invalid" class="btn btn-primary btn-block">submit</button>
+                    </div>
+                    </form>
+            </div>
+        </div>
+        <div *ngIf='msg!=""' class="alert alert-danger" role="alert">
+            <strong>{{msg}}</strong>
+          </div>
+
+    </div>
+    <div class="col-6 col-md-2"></div>
+
+</div>

@@ -1,0 +1,45 @@
+
+
+  h3{
+    color: rgb(220, 23, 23);
+    text-shadow: 2px 1px 3px black;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    padding: 2rem;
+    text-decoration: underline;
+ }
+
+
+ .bg-gradiant{
+   height: 100vh;
+background-image: linear-gradient(45deg,#32a891,#68a832);
+
+ }
+
+ tr{
+  border-style:hidden;
+ }
+
+ .heading{
+   text-decoration: underline;
+   padding-bottom: 0.5rem;
+   
+ }
+
+ .t_body td
+ {
+   padding-top: 0.5rem;
+   padding-bottom: 0.5rem;
+ }
+
+ h5{
+   font-weight: bold;
+ }
+
+ p{
+   font-weight: 650;
+ }
+
+ .note{
+  font-weight: 500;
+ }

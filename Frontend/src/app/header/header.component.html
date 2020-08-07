@@ -1,0 +1,35 @@
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/" routerLinkActive="active"> Hotspot zones</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/reg" *ngIf="auth.isUser()" routerLinkActive="active"> Apply for travel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/reg_list" *ngIf="auth.isAdmin()" routerLinkActive="active"> Registrations list</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/add" *ngIf="auth.isAdmin()" routerLinkActive="active"> Add zones</a>
+        </li>
+       
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link"  routerLink='/login' *ngIf="!auth.loggedIn()" routerLinkActive="active"> Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink='/signup' *ngIf="!auth.loggedIn()" routerLinkActive="active"> Signup</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" style="cursor:pointer" *ngIf="auth.loggedIn()" (click)="auth.logout()" routerLinkActive="active"> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>

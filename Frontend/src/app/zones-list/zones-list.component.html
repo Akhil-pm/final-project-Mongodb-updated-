@@ -1,0 +1,37 @@
+<div class="row bg-gradiant pt-5 pl-1">
+    <div class="col-6 col-md-10 mx-auto">
+
+<div class="heading">
+        <h3 class="text-center  "> Covid19 Containment Zones-live update</h3>
+    </div>
+
+      <div class="table-responsive">
+          <table  class="table  table-sm  ">
+              <thead  >
+                  <tr class="heading">
+                      <th><h5>Sl.No</h5></th>
+                      <th><h5>Place</h5></th>
+                      <th><h5>Taluk</h5></th>
+                      <th><h5>Duration</h5></th>
+                      <th><h5>Note</h5></th>
+                      <th *ngIf="auth.isAdmin()"><h5>update</h5></th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr class="t_body" *ngFor='let i of list;let j = index'>
+                      <td><p>{{j+1}}</p></td>
+                      <td><p>{{i.place}}</p></td>
+                      <td><p>{{i.taluk}}</p></td>
+                      <td><p>{{i.duration}}</p></td>
+                      <td><p class="note">{{i.note}}</p></td>
+                      <td *ngIf="auth.isAdmin()"><button type="button" *ngIf="auth.isAdmin()" class="btn btn-dark btn-sm" (click)='edit(i)'>Edit</button>
+                        <button type="button" *ngIf="auth.isAdmin()" class="btn btn-danger btn-sm btn2" (click)='deleteItem(i)'>Delete</button></td>
+                 </tr>
+              </tbody>
+          </table>
+      </div>
+
+
+</div>
+</div>

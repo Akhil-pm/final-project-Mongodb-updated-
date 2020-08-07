@@ -1,0 +1,32 @@
+<div class="container-fluid bg-gradiant">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+    <form class="add" (ngSubmit)="update()">
+
+         <h3>{{title}}</h3>   
+
+
+
+                    <div class="form-group">
+                        <label>Place</label>
+                        <input type="text" class="form-control  rounded-0" name="place" [(ngModel)]="editItem.place">
+                    </div>
+                    <div class="form-group">
+                        <label>Taluk</label>
+                        <input type="text" class="form-control  rounded-0" name="taluk" [(ngModel)]="editItem.taluk">
+                    </div>
+                    <div class="form-group">
+                        <label>Duration</label>
+                        <input type="text" class="form-control  rounded-0" name="duration" [(ngModel)]="editItem.duration">
+                    </div>
+                    <div class="form-group">
+                        <label>Note</label>
+                        <input type="text" class="form-control  rounded-0" name="note" [(ngModel)]="editItem.note">
+                    </div>
+  
+                           <button type="submit" class="btn btn-primary btn-block">update</button>
+ 
+    </form>
+</div>
+</div>
+</div>
